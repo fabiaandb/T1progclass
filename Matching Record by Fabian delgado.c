@@ -159,7 +159,9 @@ void matchingrecord()
 	//================================================================================
 	FILE *f1, *f2;
 	struct Empleado emp1, emp2;
-
+	
+			f1 = fopen("archivoF1.dat", "rb");
+			f2 = fopen("archivoF2.dat", "rb");
 
 	if ((f1 == NULL) &&(f2 == NULL) )
 		{
@@ -182,7 +184,6 @@ void matchingrecord()
 			int num=1;
 
 			// F1
-			f1 = fopen("archivoF1.dat", "rb");
 
 			printf("\n\t======================F1=========================\n");
 			while (fread(&emp1, sizeof(struct Empleado), 1, f1) == 1)
@@ -191,16 +192,14 @@ void matchingrecord()
 				}
 			num=1;
 			// F2
-			f2 = fopen("archivoF2.dat", "rb");
 			printf("\n\t======================F2=========================\n");
 			while (fread(&emp2, sizeof(struct Empleado), 1, f2) == 1)
 				{
 					printf("\t\t%5d) %8d %12d \n",(num++),emp2.codigo,emp2.cantidad);
 				}
 			num=1;
+			rewind(f1);	rewind(f2);
 
-			f1 = fopen("archivoF1.dat", "rb");
-			f2 = fopen("archivoF2.dat", "rb");
 			int leidof1 = fread(&emp1, sizeof(struct Empleado), 1, f1);
 			int leidof2 = fread(&emp2, sizeof(struct Empleado), 1, f2);
 
@@ -244,7 +243,7 @@ void matchingrecord()
 
 			fclose(f1);
 			fclose(f2);
-			printf(" -------------------------------------------------\n");
+			printf(" -------------------------------------------------\n"); getch();
 		}
 
 
