@@ -82,7 +82,7 @@ int main()
 			{
 			sueldo=empLeer.salario;
 			if(empLeer.sexo=='M') csex=sueldo*0.18; else csex=sueldo*0.25;
-			if(empLeer.bilingue='S') cbil=1000;
+			if(empLeer.bilingue=='S') cbil=1000;
 			cseg= cseg*empLeer.cantFamSeg;	
 			ccar=ccar*empLeer.cargo;
 			cant=((empLeer.antiguedad/3)*0.05)*sueldo;
